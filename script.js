@@ -7,6 +7,7 @@ var userMine = document.getElementById("mineinput").value
 var userBoard = [userBoardSize, userMine]
 const tiles = document.querySelectorAll(".tile")
 var gameStat = 'play'
+var nrOfminesLeft = userMine
 
 // declare the tile statuses
 const tile_statuses = {
@@ -68,19 +69,19 @@ function appendTiles() {
                 if (gameStat == 'play') {
                     e.preventDefault()
                     markTile(tile)
-                    listMinesLeft()
+                    // listMinesLeft()
                 }
             })
         })
     })
 }
 appendTiles()
-function listMinesLeft() {
-    const markedTilesCount = board.reduce((count, row) => {
-        return count + row.filter(tile => tile.status === tile_statuses.marked).length
-    }, 0)
-    minesLeft.textContent = userBoard[1] - markedTilesCount;
-}
+// function listMinesLeft() {
+//     const markedTilesCount = board.reduce((count, row) => {
+//         return count + row.filter(tile => tile.status === tile_statuses.marked).length
+//     }, 0)
+//     minesLeft.textContent = userBoard[1] - markedTilesCount;
+// }
 
 function markTile(tile) {
     if (tile.status !== tile_statuses.hidden && 
@@ -89,10 +90,14 @@ function markTile(tile) {
     }
     if (tile.status === tile_statuses.marked) {
         tile.status = tile_statuses.hidden
+        nrOfminesLeft += 1
+        minesLeft.textContent = nrOfminesLeft
     } 
     // else (it's not marked but hidden)
     else {
         tile.status = tile_statuses.marked
+        nrOfminesLeft -= 1
+        minesLeft.textContent = nrOfminesLeft
     }
 }
 
@@ -196,6 +201,8 @@ btn.addEventListener('click', () => {
     var userBoardSize = document.getElementById("boardinput").value
     var userMine = document.getElementById("mineinput").value
     var userBoard = [userBoardSize, userMine]
+    minesLeft.textContent = userBoard[1];
+    nrOfminesLeft = userMine
     const tiles = document.querySelectorAll(".tile")
 
     if ( userBoardSize * userBoardSize < userMine) return alert('Board size (Width X Width) must be bigger than the number of mines') 
