@@ -1,6 +1,6 @@
 var btn = document.getElementById("confirm");
 const boardElement = document.querySelector(".board")
-const messagetext = document.querySelector(".subtext")
+const messagetext = document.querySelector(".endmessage")
 const minesLeft = document.getElementById("minesleft")
 var userBoardSize = document.getElementById("boardinput").value
 var userMine = document.getElementById("mineinput").value
@@ -191,6 +191,7 @@ function checklose (board) {
 
 // restart the game
 btn.addEventListener('click', () => {
+    messagetext.innerText = ''
     gameStat = 'play'
     var userBoardSize = document.getElementById("boardinput").value
     var userMine = document.getElementById("mineinput").value
