@@ -1,0 +1,135 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    background-color: #a40606;
+    background-image: linear-gradient(315deg, #a40606 0%, #d98324 74%);
+    display: flex;
+    align-items: center;
+    font-size: 3rem;
+    flex-direction: column;
+    color: white;
+    overflow-x: hidden;
+  }
+  
+  .title {
+    margin: 20px;
+  }
+  
+  .subtext {
+    color: #CCC;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .board {
+    display: inline-grid;
+    padding: 20px;
+    grid-template-columns: repeat(var(--size), 60px);
+    grid-template-rows: repeat(var(--size), 60px);
+    gap: 4px;
+    background-color: #912727;
+    border-radius: 2%;
+    box-shadow: 10 10 10 brown;
+    box-shadow: -7px 5px 20px 4px #00000096;
+  }
+  
+  .board > * {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    user-select: none;
+  }
+  
+  .board > [data-status="hidden"] {
+    background-color: #BBB;
+    cursor: pointer;
+    border-radius: 50%;
+  }
+  
+  .board > [data-status="mine"] {
+    background-color: red;
+    cursor: pointer;
+    border-radius: 50%;
+  }
+  
+  .board > [data-status="number"] {
+    background-color: none;
+    border-radius: 50%;
+  }
+  
+  .board > [data-status="marked-mine"] {
+    background-color: rgb(41, 189, 49);
+    cursor: pointer;
+    border-radius: 50%;
+  }
+  
+  .board > [data-status="marked"] {
+    background-color: rgb(219, 219, 57);
+    cursor: pointer;
+    border-radius: 50%;
+  }
+
+  .wrapper {
+      width: 100vw;
+      min-height: 100vh;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+  }
+
+.input {
+  
+  align-items: center;
+  justify-content: space-between;
+  display: flex;
+  flex-wrap: wrap;
+  width: auto;
+  min-width: 450px;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+  #boardinput, #mineinput {
+    height: 40px;
+    width: 40px;
+    border-radius: 20%;
+    margin: 10px;
+    border: none;
+    
+
+  }
+
+  .inputname {
+    font-size: 2rem;
+    align-items: center;
+    display: flex;
+  }
+
+  #confirm {
+    align-self: center;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 10px;
+    padding: 5px 20px;
+  }
+
+  #confirm:hover {
+    cursor: pointer;
+  }
+
+  #form {
+    width: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Minesweeper</title>
+</head>
+<body>
+    <div class="wrapper">
+  <h3 class="title">Minesweeper</h3>
+
+
+
+  <div class="input">
+    <div class="inputname"> Board width:</div>
+    <input type="text" id="boardinput" value="8">
+    <div class="inputname"> Nr. Mines:</div> 
+    <input type="text" id="mineinput" value="10"> 
+    
+  </div>
+
+  <button id="confirm">Start</button>
+
+
+
+  <div class="subtext">
+    Mines Left: <span id="minesleft"></span> 
+  </div>
+  <div class="board"></div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
